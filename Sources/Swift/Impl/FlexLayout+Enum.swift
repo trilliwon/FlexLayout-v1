@@ -14,7 +14,6 @@
 
 import UIKit
 
-#if FLEXLAYOUT_SWIFT_PACKAGE || SWIFT_PACKAGE
 import FlexLayoutPilates
 
 extension PilatesFlexDirection {
@@ -70,7 +69,6 @@ extension PilatesUnit {
     static let percent = PilatesUnitPercent
     static let point = PilatesUnitPoint
 }
-#endif
 
 extension Flex.Direction {
     var pilatesValue: PilatesFlexDirection {

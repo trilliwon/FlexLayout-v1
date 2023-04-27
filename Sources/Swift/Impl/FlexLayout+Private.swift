@@ -7,9 +7,7 @@
 //
 
 import UIKit
-#if FLEXLAYOUT_SWIFT_PACKAGE || SWIFT_PACKAGE
 import FlexLayoutPilates
-#endif
 
 extension Flex {
     func valueOrUndefined(_ value: CGFloat?) -> PilatesValue {

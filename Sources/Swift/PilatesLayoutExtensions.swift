@@ -5,10 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#if FLEXLAYOUT_SWIFT_PACKAGE || SWIFT_PACKAGE
 import CoreGraphics
 import FlexLayoutPilates
-#endif
 
 postfix operator %
 
