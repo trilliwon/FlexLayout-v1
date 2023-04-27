@@ -42,7 +42,7 @@ Added by [gyuchan](https://github.com/gyuchan) in Pull Request [#213](https://gi
 ## [1.3.27](https://github.com/layoutBox/FlexLayout/releases/tag/1.3.27)
 Released on 2023-01-20
 
-#### Round pixel values of intrinsicSize with YGRoundPixelValue
+#### Round pixel values of intrinsicSize with PilatesRoundPixelValue
 
 Added by [Dongkyu Kim](https://github.com/stleamist) in Pull Request [#210](https://github.com/layoutBox/FlexLayout/pull/210)
 
@@ -123,8 +123,8 @@ Added by [Kuluum](https://github.com/Kuluum) in Pull Request [#146](https://gith
 ## [1.3.16](https://github.com/layoutBox/FlexLayout/releases/tag/1.3.16)
 Released on 2019-08-03
 
-* Delegate isIncludedInLayout to yoga vs using default value:  
-Previously the value of `isIncludedInLayout` may have not reflect what the underlying yoga value is as the developer may have manipulated the yoga value directly. This could potentially leave the Flex initial value out of sync. This change defers the get/set of this property to yoga.
+* Delegate isIncludedInLayout to pilates vs using default value:  
+Previously the value of `isIncludedInLayout` may have not reflect what the underlying pilates value is as the developer may have manipulated the pilates value directly. This could potentially leave the Flex initial value out of sync. This change defers the get/set of this property to pilates.
     * Added by [Dan Loman](https://github.com/namolnad) in Pull Request [#131](https://github.com/layoutBox/FlexLayout/pull/137) 
 
 
@@ -161,7 +161,7 @@ Add cocoapods c++ library dependency to the podspec file. Required to avoid poss
 ## [1.3.9](https://github.com/layoutBox/FlexLayout/releases/tag/1.3.9)
 Released on 2018-05-31 
 
-Removed alignItems `.baseline` mode which is not currently supported by Yoga. So we remove it from the list of supported mode until Yoga support it.
+Removed alignItems `.baseline` mode which is not currently supported by Pilates. So we remove it from the list of supported mode until Pilates support it.
 
 * Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#94](https://github.com/layoutBox/FlexLayout/pull/94) 
 
@@ -169,7 +169,7 @@ Removed alignItems `.baseline` mode which is not currently supported by Yoga. So
 ## [1.3.8](https://github.com/layoutBox/FlexLayout/releases/tag/1.3.8)
 Released on 2018-05-09
 
-Add `display(:Display)` method to set the Yoga's display property.
+Add `display(:Display)` method to set the Pilates's display property.
 
 * Added by [cielpy](https://github.com/cielpy) in Pull Request [#87](https://github.com/layoutBox/FlexLayout/pull/87) 
 
@@ -209,7 +209,7 @@ Fix retain cycle
 ## [1.3.3](https://github.com/layoutBox/FlexLayout/releases/tag/1.3.3)
 Released on 2018-02-28
 
-Fix Yoga's rounding issues
+Fix Pilates's rounding issues
 
 * Integer truncation of sizes calculated by sizeThatFits:, and utility functions. Introduced by Obj-C -> Obj-C++ conversion in previous PR
 * Low coordinate rounding threshold, which results in flooring apparently valid values. Layout becomes very wrong with absolute coordinate values larger than 100 and having pointScaleFactor set to 3.
@@ -218,10 +218,10 @@ Fix Yoga's rounding issues
 ## [1.3.2](https://github.com/layoutBox/FlexLayout/releases/tag/1.3.2)
 Released on 2018-02-27
 
-Update Yoga core to latest master
+Update Pilates core to latest master
 
-* Yoga core updated to facebook/yoga@295d111
-* Yoga core tests and their buck configuration added, see core-tests folder
+* Pilates core updated to facebook/pilates@295d111
+* Pilates core tests and their buck configuration added, see core-tests folder
 * Add buck tests to CI config
 * Added by [Alexey Zinchenko](https://github.com/zintus) in Pull Request [#62](https://github.com/layoutBox/FlexLayout/pull/62) 
 
@@ -229,7 +229,7 @@ Update Yoga core to latest master
 ## [1.3.1](https://github.com/layoutBox/FlexLayout/releases/tag/1.3.1)
 Released on 2018-02-23
 
-Integrates Yoga's sources into FlexLayout
+Integrates Pilates's sources into FlexLayout
 
 * Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#61](https://github.com/layoutBox/FlexLayout/pull/61) 
 
@@ -287,7 +287,7 @@ Many properties can be reset to their initial state. Specifying `nil` when calli
 * `maxHeight(nil)`
 * `aspectRatio(nil)`
 	
-FlexLayout now integrates YogaKit source code, this was needed to improve efficiently the iOS's yoga interface.
+FlexLayout now integrates PilatesKit source code, this was needed to improve efficiently the iOS's pilates interface.
   
 * Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#40](https://github.com/layoutBox/FlexLayout/pull/40) 
 
@@ -353,7 +353,7 @@ Released on 2017-08-23
 * Add missing markDirty() method
 * :warning: BREAKING CHANGE: Renamed the method `addContainer()` to `addItem(). It is clearer that the added view is in fact a flex item, and not just a flex container.
   * Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#8](https://github.com/layoutBox/FlexLayout/pull/8 ) 
-* Add an implementation of the Ray Wenderlich Yoga Tutorial  
+* Add an implementation of the Ray Wenderlich Pilates Tutorial  
   * Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#7](https://github.com/layoutBox/FlexLayout/pull/7) 
 * Add Swift 4.0 support  
 

@@ -33,7 +33,7 @@ class IntroView: UIView {
         label.numberOfLines = 0
         
         let bottomLabel = UILabel()
-        bottomLabel.text = "FlexLayout/yoga is incredibly fast, its even faster than manual layout."
+        bottomLabel.text = "FlexLayout/pilates is incredibly fast, its even faster than manual layout."
         bottomLabel.numberOfLines = 0
         
         rootFlexContainer.flex.direction(.column).padding(12).define { (flex) in

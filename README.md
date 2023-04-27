@@ -13,11 +13,11 @@
 
 <br>
 
-FlexLayout adds a nice Swift interface to the highly optimized [Yoga](https://github.com/facebook/yoga) flexbox implementation. Concise, intuitive & chainable syntax.
+FlexLayout adds a nice Swift interface to the highly optimized [Pilates](https://github.com/facebook/pilates) flexbox implementation. Concise, intuitive & chainable syntax.
 
 Flexbox is an incredible improvement over UIStackView. It is simpler to use, much more versatile and amazingly performant.
 
-> Yoga is a multiplatform CSS Flexbox implementation (iOS/Android/...). Yoga is also the layout engine of React Native.
+> Pilates is a multiplatform CSS Flexbox implementation (iOS/Android/...). Pilates is also the layout engine of React Native.
 
 
 ### Requirements
@@ -126,7 +126,7 @@ override func layoutSubviews() {
 
 <a name="intro_usage_example_raywenderlich"></a>
 ###### Example 2: 
-The example implements the [Ray Wenderlich Yoga Tutorial](https://www.raywenderlich.com/161413/yoga-tutorial-using-cross-platform-layout-engine) screen using FlexLayout. 
+The example implements the [Ray Wenderlich Pilates Tutorial](https://www.raywenderlich.com/161413/pilates-tutorial-using-cross-platform-layout-engine) screen using FlexLayout. 
 
 <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/RaywenderlichTutorial/RaywenderlichTutorialView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_ray_wenderlich_tutorial.png" width=200/></a>
 
@@ -204,11 +204,11 @@ override func layoutSubviews() {
 ## FlexLayout principles and philosophy 
 * Flexbox layouting is simple, powerful and fast.
 * FlexLayout syntax is concise and chainable.
-* FlexLayout/yoga is incredibly fast, it's even faster than manual layout. See [Performance](#performance).
+* FlexLayout/pilates is incredibly fast, it's even faster than manual layout. See [Performance](#performance).
 * The source code structure matches the flexbox structure, making it easier to understand and modify. Flex containers are defined on one line, and its items (children) are imbricated. This makes the flexbox structure much more visual and easy to understand.
 * Supports left-to-right (LTR) and right-to-left (RTL) languages.
 
-NOTE: FlexLayout wraps [facebook/yoga](https://github.com/facebook/yoga) implementation and expose all its features. So note that on this documentation we will refer to FlexLayout, but this also applies to Yoga.
+NOTE: FlexLayout wraps [facebook/pilates](https://github.com/facebook/pilates) implementation and expose all its features. So note that on this documentation we will refer to FlexLayout, but this also applies to Pilates.
 
 <br>
 
@@ -807,7 +807,7 @@ Using these properties you can control the size and position of an absolute item
   view.flex.position(.absolute).top(10).right(10).width(100).height(50)
   view.flex.position(.absolute).left(20%).right(20%)
 ```
-:pushpin: See the "Yoga C" example in the [Examples App](#examples_app). [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleC/YogaExampleCView.swift)
+:pushpin: See the "Pilates C" example in the [Examples App](#examples_app). [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleC/PilatesExampleCView.swift)
 
 <br>
 
@@ -891,7 +891,7 @@ The value specifies the view's maximum height of the view in percentage of its c
 
 <a name="aspect_ratio"></a>
 ### aspectRatio() 
-AspectRatio is a property introduced by Yoga that don't exist in CSS. AspectRatio solves the problem of knowing one dimension of an element and an aspect ratio, this is very common when it comes to images, videos, and other media types. AspectRatio accepts any floating point value > 0, the default is undefined.
+AspectRatio is a property introduced by Pilates that don't exist in CSS. AspectRatio solves the problem of knowing one dimension of an element and an aspect ratio, this is very common when it comes to images, videos, and other media types. AspectRatio accepts any floating point value > 0, the default is undefined.
 
 * AspectRatio is defined as the ratio between the width and the height of a node e.g. if a node has an aspect ratio of 2 then its width is twice the size of its height.
 * AspectRatio respects the Min and Max dimensions of an item.
@@ -1029,11 +1029,11 @@ The FlexLayout's Example App exposes some usage example of FlexLayout.
 <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/RaywenderlichTutorial/RaywenderlichTutorialView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_ray_wenderlich_tutorial.png" width=90/></a>
 <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/TableViewExample"><img src="docs_markdown/images/examples/flexlayout_exampleapp_uitableview.png" width=90/></a>
 <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/CollectionViewExample/HouseCell.swift"><img src="docs_markdown/images/examples/flexlayout_example_collectionview.png" width=90/></a>
-<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleA/YogaExampleAView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_yoga_c.png" width=90/></a>
-<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleB/YogaExampleBView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_yoga_objc.png" width=90/></a>
-<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleC/YogaExampleCView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_yoga_java.png" width=90/></a>
-<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleD/YogaExampleDView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_yoga_csharp.png" width=90/></a>
-<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleE/YogaExampleEView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_yoga_android.png" width=90/></a>
+<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleA/PilatesExampleAView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_pilates_c.png" width=90/></a>
+<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleB/PilatesExampleBView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_pilates_objc.png" width=90/></a>
+<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleC/PilatesExampleCView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_pilates_java.png" width=90/></a>
+<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleD/PilatesExampleDView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_pilates_csharp.png" width=90/></a>
+<a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleE/PilatesExampleEView.swift"><img src="docs_markdown/images/examples/flexlayout_exampleapp_pilates_android.png" width=90/></a>
 
 <br>
 
@@ -1062,9 +1062,9 @@ The FlexLayout's Example App exposes some usage example of FlexLayout.
 <br/>
 
 ## Flexbox interesting external links
-* [Introduction to Flexbox using Yoga](https://yogalayout.com/)
+* [Introduction to Flexbox using Pilates](https://pilateslayout.com/)
 * [THE flexbox CSS reference: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [Raywenderlich interesting Yoga tutorial](https://www.raywenderlich.com/161413/yoga-tutorial-using-cross-platform-layout-engine)
+* [Raywenderlich interesting Pilates tutorial](https://www.raywenderlich.com/161413/pilates-tutorial-using-cross-platform-layout-engine)
 * [An Introduction to Flexbox CSS](https://slicejack.com/introduction-to-flexbox/)
 * [Flex Cheatsheet: Test flexbox properties using CSS](https://yoksel.github.io/flex-cheatsheet)
 * [Mozialla: Advanced layouts with flexbox using CSS](https://developer.mozilla.org/en-US/docs_markdown/Web/CSS/CSS_Flexible_Box_Layout/Advanced_layouts_with_flexbox)
@@ -1075,7 +1075,7 @@ The FlexLayout's Example App exposes some usage example of FlexLayout.
 ## Contributing, comments, ideas, suggestions, issues, .... 
 For any **comments**, **ideas**, **suggestions**, simply open an [issue](https://github.com/layoutBox/FlexLayout/issues). 
 
-For **issues**, please have a look at [Yoga's issues](https://github.com/facebook/yoga/issues). Your issue may have been already reported. If not, it may be a FlexLayout issue. In this case open an issue and we'll let you know if the issue is related to Yoga's implementation. 
+For **issues**, please have a look at [Pilates's issues](https://github.com/facebook/pilates/issues). Your issue may have been already reported. If not, it may be a FlexLayout issue. In this case open an issue and we'll let you know if the issue is related to Pilates's implementation. 
 
 If you find FlexLayout interesting, thanks to **Star** it. You'll be able to retrieve it easily later.
 

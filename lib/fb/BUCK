@@ -3,7 +3,7 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
-include_defs("//yoga_defs.bzl")
+include_defs("//pilates_defs.bzl")
 
 prebuilt_cxx_library(
     name = "ndklog",

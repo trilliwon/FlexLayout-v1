@@ -129,8 +129,8 @@ class JustifyContentSpec: QuickSpec {
                 rootFlexContainer.flex.define { (flex) in
                     flex.addItem(aView).basis(1)
                     
-                    // Disable until my PR on YogaKit is merged!
-                    // https://github.com/facebook/yoga/pull/672
+                    // Disable until my PR on PilatesKit is merged!
+                    // https://github.com/facebook/pilates/pull/672
                     //flex.addItem(bView).basis(nil)
                 }
                 rootFlexContainer.flex.layout()

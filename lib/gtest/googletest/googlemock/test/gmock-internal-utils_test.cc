@@ -54,7 +54,7 @@
 #include "src/gtest-internal-inl.h"
 #undef GTEST_IMPLEMENTATION_
 
-#if GTEST_OS_CYGWIN
+#if GTEST_OS_CPilatesWIN
 # include <sys/types.h>  // For ssize_t. NOLINT
 #endif
 
@@ -169,7 +169,7 @@ TEST(KindOfTest, Integer) {
   EXPECT_EQ(kInteger, GMOCK_KIND_OF_(Int64));  // NOLINT
   EXPECT_EQ(kInteger, GMOCK_KIND_OF_(UInt64));  // NOLINT
   EXPECT_EQ(kInteger, GMOCK_KIND_OF_(size_t));  // NOLINT
-#if GTEST_OS_LINUX || GTEST_OS_MAC || GTEST_OS_CYGWIN
+#if GTEST_OS_LINUX || GTEST_OS_MAC || GTEST_OS_CPilatesWIN
   // ssize_t is not defined on Windows and possibly some other OSes.
   EXPECT_EQ(kInteger, GMOCK_KIND_OF_(ssize_t));  // NOLINT
 #endif

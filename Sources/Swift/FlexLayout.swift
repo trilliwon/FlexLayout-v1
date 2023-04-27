@@ -14,7 +14,7 @@
 
 import UIKit
 #if FLEXLAYOUT_SWIFT_PACKAGE || SWIFT_PACKAGE
-import FlexLayoutYogaKit
+import FlexLayoutPilatesKit
 #endif
 
 /**
@@ -35,21 +35,21 @@ public final class Flex {
      Flex items's UIView.
     */
     public private(set) weak var view: UIView?
-    private let yoga: YGLayout
+    private let pilates: PilatesLayout
     
     /**
      Item natural size, considering only properties of the view itself. Independent of the item frame.
      */
     public var intrinsicSize: CGSize {
-        return yoga.intrinsicSize
+        return pilates.intrinsicSize
     }
     
     init(view: UIView) {
         self.view = view
-        self.yoga = view.yoga
+        self.pilates = view.pilates
         
-        // Enable flexbox and overwrite Yoga default values.
-        yoga.isEnabled = true
+        // Enable flexbox and overwrite Pilates default values.
+        pilates.isEnabled = true
     }
 
     //
@@ -109,9 +109,9 @@ public final class Flex {
     */
     public func layout(mode: LayoutMode = .fitContainer) {
         if case .fitContainer = mode {
-            yoga.applyLayout(preservingOrigin: true)
+            pilates.applyLayout(preservingOrigin: true)
         } else {
-            yoga.applyLayout(preservingOrigin: true, dimensionFlexibility: mode == .adjustWidth ? YGDimensionFlexibility.flexibleWidth : YGDimensionFlexibility.flexibleHeight)
+            pilates.applyLayout(preservingOrigin: true, dimensionFlexibility: mode == .adjustWidth ? PilatesDimensionFlexibility.flexibleWidth : PilatesDimensionFlexibility.flexibleHeight)
         }
     }
     
@@ -121,10 +121,10 @@ public final class Flex {
     */
     public var isIncludedInLayout: Bool {
         get {
-            return yoga.isIncludedInLayout
+            return pilates.isIncludedInLayout
         }
         set {
-            yoga.isIncludedInLayout = newValue
+            pilates.isIncludedInLayout = newValue
         }
     }
     
@@ -152,7 +152,7 @@ public final class Flex {
     */
     @discardableResult
     public func markDirty() -> Flex {
-        yoga.markDirty()
+        pilates.markDirty()
         return self
     }
     
@@ -163,7 +163,7 @@ public final class Flex {
      - Returns: item size
     */
     public func sizeThatFits(size: CGSize) -> CGSize {
-        return yoga.calculateLayout(with: size)
+        return pilates.calculateLayout(with: size)
     }
     
     //
@@ -182,7 +182,7 @@ public final class Flex {
     */
     public var direction: Direction? {
         get {
-            switch yoga.flexDirection {
+            switch pilates.flexDirection {
             case .column:           return Flex.Direction.column
             case .columnReverse:    return Flex.Direction.columnReverse
             case .row:              return Flex.Direction.row
@@ -209,7 +209,7 @@ public final class Flex {
     */
     @discardableResult
     public func direction(_ value: Direction) -> Flex {
-        yoga.flexDirection = value.yogaValue
+        pilates.flexDirection = value.pilatesValue
         return self
     }
     
@@ -220,7 +220,7 @@ public final class Flex {
     */
     @discardableResult
     public func wrap(_ value: Wrap) -> Flex {
-        yoga.flexWrap = value.yogaValue
+        pilates.flexWrap = value.pilatesValue
         return self
     }
     
@@ -243,9 +243,9 @@ public final class Flex {
             } else {
                 userInterfaceLayoutDirection = UIApplication.shared.userInterfaceLayoutDirection
             }
-            yoga.direction = userInterfaceLayoutDirection == .leftToRight ? YGDirection.LTR : YGDirection.RTL
+            pilates.direction = userInterfaceLayoutDirection == .leftToRight ? PilatesDirection.LTR : PilatesDirection.RTL
         default:*/
-        yoga.direction = value.yogaValue
+        pilates.direction = value.pilatesValue
         //}
         return self
     }
@@ -263,7 +263,7 @@ public final class Flex {
     */
     @discardableResult
     public func justifyContent(_ value: JustifyContent) -> Flex {
-        yoga.justifyContent = value.yogaValue
+        pilates.justifyContent = value.pilatesValue
         return self
     }
     
@@ -276,7 +276,7 @@ public final class Flex {
      */
     @discardableResult
     public func alignItems(_ value: AlignItems) -> Flex {
-        yoga.alignItems = value.yogaValue
+        pilates.alignItems = value.pilatesValue
         return self
     }
     
@@ -289,7 +289,7 @@ public final class Flex {
     */
     @discardableResult
     public func alignSelf(_ value: AlignSelf) -> Flex {
-        yoga.alignSelf = value.yogaValue
+        pilates.alignSelf = value.pilatesValue
         return self
     }
     
@@ -301,13 +301,13 @@ public final class Flex {
      */
     @discardableResult
     public func alignContent(_ value: AlignContent) -> Flex {
-        yoga.alignContent = value.yogaValue
+        pilates.alignContent = value.pilatesValue
         return self
     }
 
     /*@discardableResult
     public func overflow(_ value: Overflow) -> Flex {
-        yoga.overflow = value.yogaValue
+        pilates.overflow = value.pilatesValue
         return self
     }*/
     
@@ -324,7 +324,7 @@ public final class Flex {
     */
     @discardableResult
     public func grow(_ value: CGFloat) -> Flex {
-        yoga.flexGrow = value
+        pilates.flexGrow = value
        return self
     }
     
@@ -342,7 +342,7 @@ public final class Flex {
     */
     @discardableResult
     public func shrink(_ value: CGFloat) -> Flex {
-        yoga.flexShrink = value
+        pilates.flexShrink = value
         return self
     }
 
@@ -357,7 +357,7 @@ public final class Flex {
     */
     @discardableResult
     public func basis(_ value: CGFloat?) -> Flex {
-        yoga.flexBasis = valueOrAuto(value)
+        pilates.flexBasis = valueOrAuto(value)
         return self
     }
 
@@ -370,7 +370,7 @@ public final class Flex {
     */
     @discardableResult
     public func basis(_ percent: FPercent) -> Flex {
-        yoga.flexBasis = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.flexBasis = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -383,7 +383,7 @@ public final class Flex {
     */
     @discardableResult
     public func width(_ value: CGFloat?) -> Flex {
-        yoga.width = valueOrAuto(value)
+        pilates.width = valueOrAuto(value)
         return self
     }
     
@@ -393,7 +393,7 @@ public final class Flex {
      */
     @discardableResult
     public func width(_ percent: FPercent) -> Flex {
-        yoga.width = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.width = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -402,7 +402,7 @@ public final class Flex {
      */
     @discardableResult
     public func height(_ value: CGFloat?) -> Flex {
-        yoga.height = valueOrAuto(value)
+        pilates.height = valueOrAuto(value)
         return self
     }
     
@@ -412,7 +412,7 @@ public final class Flex {
      */
     @discardableResult
     public func height(_ percent: FPercent) -> Flex {
-        yoga.height = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.height = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -421,8 +421,8 @@ public final class Flex {
      */
     @discardableResult
     public func size(_ size: CGSize?) -> Flex {
-        yoga.width = valueOrAuto(size?.width)
-        yoga.height = valueOrAuto(size?.height)
+        pilates.width = valueOrAuto(size?.width)
+        pilates.height = valueOrAuto(size?.height)
         return self
     }
     
@@ -431,8 +431,8 @@ public final class Flex {
      */
     @discardableResult
     public func size(_ sideLength: CGFloat) -> Flex {
-        yoga.width = YGValue(sideLength)
-        yoga.height = YGValue(sideLength)
+        pilates.width = PilatesValue(sideLength)
+        pilates.height = PilatesValue(sideLength)
         return self
     }
 
@@ -441,7 +441,7 @@ public final class Flex {
      */
     @discardableResult
     public func minWidth(_ value: CGFloat?) -> Flex {
-        yoga.minWidth = valueOrUndefined(value)
+        pilates.minWidth = valueOrUndefined(value)
         return self
     }
     
@@ -450,7 +450,7 @@ public final class Flex {
      */
     @discardableResult
     public func minWidth(_ percent: FPercent) -> Flex {
-        yoga.minWidth = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.minWidth = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -459,7 +459,7 @@ public final class Flex {
      */
     @discardableResult
     public func maxWidth(_ value: CGFloat?) -> Flex {
-        yoga.maxWidth = valueOrUndefined(value)
+        pilates.maxWidth = valueOrUndefined(value)
         return self
     }
     
@@ -468,7 +468,7 @@ public final class Flex {
      */
     @discardableResult
     public func maxWidth(_ percent: FPercent) -> Flex {
-        yoga.maxWidth = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.maxWidth = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -477,7 +477,7 @@ public final class Flex {
      */
     @discardableResult
     public func minHeight(_ value: CGFloat?) -> Flex {
-        yoga.minHeight = valueOrUndefined(value)
+        pilates.minHeight = valueOrUndefined(value)
         return self
     }
     
@@ -486,7 +486,7 @@ public final class Flex {
      */
     @discardableResult
     public func minHeight(_ percent: FPercent) -> Flex {
-        yoga.minHeight = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.minHeight = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -495,7 +495,7 @@ public final class Flex {
      */
     @discardableResult
     public func maxHeight(_ value: CGFloat?) -> Flex {
-        yoga.maxHeight = valueOrUndefined(value)
+        pilates.maxHeight = valueOrUndefined(value)
         
         return self
     }
@@ -505,12 +505,12 @@ public final class Flex {
      */
     @discardableResult
     public func maxHeight(_ percent: FPercent) -> Flex {
-        yoga.maxHeight = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.maxHeight = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
     /**
-     AspectRatio is a property introduced by Yoga that don't exist in CSS. AspectRatio solves the problem of knowing 
+     AspectRatio is a property introduced by Pilates that don't exist in CSS. AspectRatio solves the problem of knowing 
      one dimension of an element and an aspect ratio, this is very common when it comes to images, videos, and other
      media types. AspectRatio accepts any floating point value > 0, the default is undefined.
     
@@ -519,12 +519,12 @@ public final class Flex {
     */
     @discardableResult
     public func aspectRatio(_ value: CGFloat?) -> Flex {
-        yoga.aspectRatio = value != nil ? value! : CGFloat(YGValueUndefined.value)
+        pilates.aspectRatio = value != nil ? value! : CGFloat(PilatesValueUndefined.value)
         return self
     }
     
     /**
-     AspectRatio is a property introduced by Yoga that don't exist in CSS. AspectRatio solves the problem of knowing
+     AspectRatio is a property introduced by Pilates that don't exist in CSS. AspectRatio solves the problem of knowing
      one dimension of an element and an aspect ratio, this is very common when it comes to images, videos, and other
      media types. AspectRatio accepts any floating point value > 0, the default is undefined.
     
@@ -534,7 +534,7 @@ public final class Flex {
     @discardableResult
     public func aspectRatio(of imageView: UIImageView) -> Flex {
         if let imageSize = imageView.image?.size {
-            yoga.aspectRatio = imageSize.width / imageSize.height
+            pilates.aspectRatio = imageSize.width / imageSize.height
         }
         return self
     }
@@ -550,7 +550,7 @@ public final class Flex {
      */
     @discardableResult
     public func position(_ value: Position) -> Flex {
-        yoga.position = value.yogaValue
+        pilates.position = value.pilatesValue
         return self
     }
     
@@ -560,7 +560,7 @@ public final class Flex {
      */
     @discardableResult
     public func left(_ value: CGFloat) -> Flex {
-        yoga.left = YGValue(value)
+        pilates.left = PilatesValue(value)
         return self
     }
 
@@ -570,7 +570,7 @@ public final class Flex {
      */
     @discardableResult
     public func left(_ percent: FPercent) -> Flex {
-        yoga.left = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.left = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -580,7 +580,7 @@ public final class Flex {
      */
     @discardableResult
     public func top(_ value: CGFloat) -> Flex {
-        yoga.top = YGValue(value)
+        pilates.top = PilatesValue(value)
         return self
     }
 
@@ -590,7 +590,7 @@ public final class Flex {
      */
     @discardableResult
     public func top(_ percent: FPercent) -> Flex {
-        yoga.top = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.top = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -600,7 +600,7 @@ public final class Flex {
      */
     @discardableResult
     public func right(_ value: CGFloat) -> Flex {
-        yoga.right = YGValue(value)
+        pilates.right = PilatesValue(value)
         return self
     }
 
@@ -610,7 +610,7 @@ public final class Flex {
      */
     @discardableResult
     public func right(_ percent: FPercent) -> Flex {
-        yoga.right = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.right = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -620,7 +620,7 @@ public final class Flex {
      */
     @discardableResult
     public func bottom(_ value: CGFloat) -> Flex {
-        yoga.bottom = YGValue(value)
+        pilates.bottom = PilatesValue(value)
         return self
     }
 
@@ -630,7 +630,7 @@ public final class Flex {
      */
     @discardableResult
     public func bottom(_ percent: FPercent) -> Flex {
-        yoga.bottom = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.bottom = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -640,7 +640,7 @@ public final class Flex {
      */
     @discardableResult
     public func start(_ value: CGFloat) -> Flex {
-        yoga.start = YGValue(value)
+        pilates.start = PilatesValue(value)
         return self
     }
 
@@ -651,7 +651,7 @@ public final class Flex {
      */
     @discardableResult
     public func start(_ percent: FPercent) -> Flex {
-        yoga.start = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.start = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -661,7 +661,7 @@ public final class Flex {
      */
     @discardableResult
     public func end(_ value: CGFloat) -> Flex {
-        yoga.end = YGValue(value)
+        pilates.end = PilatesValue(value)
         return self
     }
 
@@ -672,7 +672,7 @@ public final class Flex {
      */
     @discardableResult
     public func end(_ percent: FPercent) -> Flex {
-        yoga.end = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.end = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -682,8 +682,8 @@ public final class Flex {
       */
     @discardableResult
     public func horizontally(_ value: CGFloat) -> Flex {
-        yoga.left = YGValue(value)
-        yoga.right = YGValue(value)
+        pilates.left = PilatesValue(value)
+        pilates.right = PilatesValue(value)
         return self
      }
 
@@ -693,8 +693,8 @@ public final class Flex {
       */
     @discardableResult
     public func horizontally(_ percent: FPercent) -> Flex {
-        yoga.left = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.right = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.left = PilatesValue(value: Float(percent.value), unit: .percent)
+        pilates.right = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -704,8 +704,8 @@ public final class Flex {
      */
     @discardableResult
     public func vertically(_ value: CGFloat) -> Flex {
-        yoga.top = YGValue(value)
-        yoga.bottom = YGValue(value)
+        pilates.top = PilatesValue(value)
+        pilates.bottom = PilatesValue(value)
         return self
     }
     
@@ -715,8 +715,8 @@ public final class Flex {
      */
     @discardableResult
     public func vertically(_ percent: FPercent) -> Flex {
-        yoga.top = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.bottom = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.top = PilatesValue(value: Float(percent.value), unit: .percent)
+        pilates.bottom = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -726,10 +726,10 @@ public final class Flex {
      */
     @discardableResult
     public func all(_ value: CGFloat) -> Flex {
-        yoga.top = YGValue(value)
-        yoga.left = YGValue(value)
-        yoga.bottom = YGValue(value)
-        yoga.right = YGValue(value)
+        pilates.top = PilatesValue(value)
+        pilates.left = PilatesValue(value)
+        pilates.bottom = PilatesValue(value)
+        pilates.right = PilatesValue(value)
         return self
     }
     
@@ -739,10 +739,10 @@ public final class Flex {
      */
     @discardableResult
     public func all(_ percent: FPercent) -> Flex {
-        yoga.top = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.left = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.bottom = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.right = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.top = PilatesValue(value: Float(percent.value), unit: .percent)
+        pilates.left = PilatesValue(value: Float(percent.value), unit: .percent)
+        pilates.bottom = PilatesValue(value: Float(percent.value), unit: .percent)
+        pilates.right = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -755,13 +755,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginTop(_ value: CGFloat) -> Flex {
-        yoga.marginTop = YGValue(value)
+        pilates.marginTop = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func marginTop(_ percent: FPercent) -> Flex {
-        yoga.marginTop = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.marginTop = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -770,13 +770,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginLeft(_ value: CGFloat) -> Flex {
-        yoga.marginLeft = YGValue(value)
+        pilates.marginLeft = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func marginLeft(_ percent: FPercent) -> Flex {
-        yoga.marginLeft = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.marginLeft = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -785,13 +785,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginBottom(_ value: CGFloat) -> Flex {
-        yoga.marginBottom = YGValue(value)
+        pilates.marginBottom = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func marginBottom(_ percent: FPercent) -> Flex {
-        yoga.marginBottom = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.marginBottom = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -800,13 +800,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginRight(_ value: CGFloat) -> Flex {
-        yoga.marginRight = YGValue(value)
+        pilates.marginRight = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func marginRight(_ percent: FPercent) -> Flex {
-        yoga.marginRight = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.marginRight = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -819,13 +819,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginStart(_ value: CGFloat) -> Flex {
-        yoga.marginStart = YGValue(value)
+        pilates.marginStart = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func marginStart(_ percent: FPercent) -> Flex {
-        yoga.marginStart = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.marginStart = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -838,13 +838,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginEnd(_ value: CGFloat) -> Flex {
-        yoga.marginEnd = YGValue(value)
+        pilates.marginEnd = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func marginEnd(_ percent: FPercent) -> Flex {
-        yoga.marginEnd = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.marginEnd = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -853,13 +853,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginHorizontal(_ value: CGFloat) -> Flex {
-        yoga.marginHorizontal = YGValue(value)
+        pilates.marginHorizontal = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func marginHorizontal(_ percent: FPercent) -> Flex {
-        yoga.marginHorizontal = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.marginHorizontal = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -868,13 +868,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginVertical(_ value: CGFloat) -> Flex {
-        yoga.marginVertical = YGValue(value)
+        pilates.marginVertical = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func marginVertical(_ percent: FPercent) -> Flex {
-        yoga.marginVertical = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.marginVertical = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -884,10 +884,10 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ insets: UIEdgeInsets) -> Flex {
-        yoga.marginTop = YGValue(insets.top)
-        yoga.marginLeft = YGValue(insets.left)
-        yoga.marginBottom = YGValue(insets.bottom)
-        yoga.marginRight = YGValue(insets.right)
+        pilates.marginTop = PilatesValue(insets.top)
+        pilates.marginLeft = PilatesValue(insets.left)
+        pilates.marginBottom = PilatesValue(insets.bottom)
+        pilates.marginRight = PilatesValue(insets.right)
         return self
     }
     
@@ -900,10 +900,10 @@ public final class Flex {
     @available(tvOS 11.0, iOS 11.0, *)
     @discardableResult
     public func margin(_ directionalInsets: NSDirectionalEdgeInsets) -> Flex {
-        yoga.marginTop = YGValue(directionalInsets.top)
-        yoga.marginStart = YGValue(directionalInsets.leading)
-        yoga.marginBottom = YGValue(directionalInsets.bottom)
-        yoga.marginEnd = YGValue(directionalInsets.trailing)
+        pilates.marginTop = PilatesValue(directionalInsets.top)
+        pilates.marginStart = PilatesValue(directionalInsets.leading)
+        pilates.marginBottom = PilatesValue(directionalInsets.bottom)
+        pilates.marginEnd = PilatesValue(directionalInsets.trailing)
         return self
     }
 
@@ -912,13 +912,13 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ value: CGFloat) -> Flex {
-        yoga.margin = YGValue(value)
+        pilates.margin = PilatesValue(value)
         return self
     }
     
     @discardableResult
     public func margin(_ percent: FPercent) -> Flex {
-        yoga.margin = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.margin = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -927,15 +927,15 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ vertical: CGFloat, _ horizontal: CGFloat) -> Flex {
-        yoga.marginVertical = YGValue(vertical)
-        yoga.marginHorizontal = YGValue(horizontal)
+        pilates.marginVertical = PilatesValue(vertical)
+        pilates.marginHorizontal = PilatesValue(horizontal)
         return self
     }
     
     @discardableResult
     public func margin(_ vertical: FPercent, _ horizontal: FPercent) -> Flex {
-        yoga.marginVertical = YGValue(value: Float(vertical.value), unit: .percent)
-        yoga.marginHorizontal = YGValue(value: Float(horizontal.value), unit: .percent)
+        pilates.marginVertical = PilatesValue(value: Float(vertical.value), unit: .percent)
+        pilates.marginHorizontal = PilatesValue(value: Float(horizontal.value), unit: .percent)
         return self
     }
     
@@ -944,17 +944,17 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ top: CGFloat, _ horizontal: CGFloat, _ bottom: CGFloat) -> Flex {
-        yoga.marginTop = YGValue(top)
-        yoga.marginHorizontal = YGValue(horizontal)
-        yoga.marginBottom = YGValue(bottom)
+        pilates.marginTop = PilatesValue(top)
+        pilates.marginHorizontal = PilatesValue(horizontal)
+        pilates.marginBottom = PilatesValue(bottom)
         return self
     }
     
     @discardableResult
     public func margin(_ top: FPercent, _ horizontal: FPercent, _ bottom: FPercent) -> Flex {
-        yoga.marginTop = YGValue(value: Float(top.value), unit: .percent)
-        yoga.marginHorizontal = YGValue(value: Float(horizontal.value), unit: .percent)
-        yoga.marginBottom = YGValue(value: Float(bottom.value), unit: .percent)
+        pilates.marginTop = PilatesValue(value: Float(top.value), unit: .percent)
+        pilates.marginHorizontal = PilatesValue(value: Float(horizontal.value), unit: .percent)
+        pilates.marginBottom = PilatesValue(value: Float(bottom.value), unit: .percent)
         return self
     }
 
@@ -963,19 +963,19 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> Flex {
-        yoga.marginTop = YGValue(top)
-        yoga.marginLeft = YGValue(left)
-        yoga.marginBottom = YGValue(bottom)
-        yoga.marginRight = YGValue(right)
+        pilates.marginTop = PilatesValue(top)
+        pilates.marginLeft = PilatesValue(left)
+        pilates.marginBottom = PilatesValue(bottom)
+        pilates.marginRight = PilatesValue(right)
         return self
     }
     
     @discardableResult
     public func margin(_ top: FPercent, _ left: FPercent, _ bottom: FPercent, _ right: FPercent) -> Flex {
-        yoga.marginTop = YGValue(value: Float(top.value), unit: .percent)
-        yoga.marginLeft = YGValue(value: Float(left.value), unit: .percent)
-        yoga.marginBottom = YGValue(value: Float(bottom.value), unit: .percent)
-        yoga.marginRight = YGValue(value: Float(right.value), unit: .percent)
+        pilates.marginTop = PilatesValue(value: Float(top.value), unit: .percent)
+        pilates.marginLeft = PilatesValue(value: Float(left.value), unit: .percent)
+        pilates.marginBottom = PilatesValue(value: Float(bottom.value), unit: .percent)
+        pilates.marginRight = PilatesValue(value: Float(right.value), unit: .percent)
         return self
     }
 
@@ -988,13 +988,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingTop(_ value: CGFloat) -> Flex {
-        yoga.paddingTop = YGValue(value)
+        pilates.paddingTop = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func paddingTop(_ percent: FPercent) -> Flex {
-        yoga.paddingTop = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.paddingTop = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1003,13 +1003,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingLeft(_ value: CGFloat) -> Flex {
-        yoga.paddingLeft = YGValue(value)
+        pilates.paddingLeft = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func paddingLeft(_ percent: FPercent) -> Flex {
-        yoga.paddingLeft = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.paddingLeft = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1018,13 +1018,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingBottom(_ value: CGFloat) -> Flex {
-        yoga.paddingBottom = YGValue(value)
+        pilates.paddingBottom = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func paddingBottom(_ percent: FPercent) -> Flex {
-        yoga.paddingBottom = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.paddingBottom = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1033,13 +1033,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingRight(_ value: CGFloat) -> Flex {
-        yoga.paddingRight = YGValue(value)
+        pilates.paddingRight = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func paddingRight(_ percent: FPercent) -> Flex {
-        yoga.paddingRight = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.paddingRight = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1052,13 +1052,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingStart(_ value: CGFloat) -> Flex {
-        yoga.paddingStart = YGValue(value)
+        pilates.paddingStart = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func paddingStart(_ percent: FPercent) -> Flex {
-        yoga.paddingStart = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.paddingStart = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1071,13 +1071,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingEnd(_ value: CGFloat) -> Flex {
-        yoga.paddingEnd = YGValue(value)
+        pilates.paddingEnd = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func paddingEnd(_ percent: FPercent) -> Flex {
-        yoga.paddingEnd = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.paddingEnd = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1086,13 +1086,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingHorizontal(_ value: CGFloat) -> Flex {
-        yoga.paddingHorizontal = YGValue(value)
+        pilates.paddingHorizontal = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func paddingHorizontal(_ percent: FPercent) -> Flex {
-        yoga.paddingHorizontal = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.paddingHorizontal = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1101,13 +1101,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingVertical(_ value: CGFloat) -> Flex {
-        yoga.paddingVertical = YGValue(value)
+        pilates.paddingVertical = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func paddingVertical(_ percent: FPercent) -> Flex {
-        yoga.paddingVertical = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.paddingVertical = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -1117,10 +1117,10 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ insets: UIEdgeInsets) -> Flex {
-        yoga.paddingTop = YGValue(insets.top)
-        yoga.paddingLeft = YGValue(insets.left)
-        yoga.paddingBottom = YGValue(insets.bottom)
-        yoga.paddingRight = YGValue(insets.right)
+        pilates.paddingTop = PilatesValue(insets.top)
+        pilates.paddingLeft = PilatesValue(insets.left)
+        pilates.paddingBottom = PilatesValue(insets.bottom)
+        pilates.paddingRight = PilatesValue(insets.right)
         return self
     }
     
@@ -1133,10 +1133,10 @@ public final class Flex {
     @available(tvOS 11.0, iOS 11.0, *)
     @discardableResult
     public func padding(_ directionalInsets: NSDirectionalEdgeInsets) -> Flex {
-        yoga.paddingTop = YGValue(directionalInsets.top)
-        yoga.paddingStart = YGValue(directionalInsets.leading)
-        yoga.paddingBottom = YGValue(directionalInsets.bottom)
-        yoga.paddingEnd = YGValue(directionalInsets.trailing)
+        pilates.paddingTop = PilatesValue(directionalInsets.top)
+        pilates.paddingStart = PilatesValue(directionalInsets.leading)
+        pilates.paddingBottom = PilatesValue(directionalInsets.bottom)
+        pilates.paddingEnd = PilatesValue(directionalInsets.trailing)
         return self
     }
 
@@ -1145,13 +1145,13 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ value: CGFloat) -> Flex {
-        yoga.padding = YGValue(value)
+        pilates.padding = PilatesValue(value)
         return self
     }
 
     @discardableResult
     public func padding(_ percent: FPercent) -> Flex {
-        yoga.padding = YGValue(value: Float(percent.value), unit: .percent)
+        pilates.padding = PilatesValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1160,15 +1160,15 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ vertical: CGFloat, _ horizontal: CGFloat) -> Flex {
-        yoga.paddingVertical = YGValue(vertical)
-        yoga.paddingHorizontal = YGValue(horizontal)
+        pilates.paddingVertical = PilatesValue(vertical)
+        pilates.paddingHorizontal = PilatesValue(horizontal)
         return self
     }
 
     @discardableResult
     public func padding(_ vertical: FPercent, _ horizontal: FPercent) -> Flex {
-        yoga.paddingVertical = YGValue(value: Float(vertical.value), unit: .percent)
-        yoga.paddingHorizontal = YGValue(value: Float(horizontal.value), unit: .percent)
+        pilates.paddingVertical = PilatesValue(value: Float(vertical.value), unit: .percent)
+        pilates.paddingHorizontal = PilatesValue(value: Float(horizontal.value), unit: .percent)
         return self
     }
     
@@ -1177,17 +1177,17 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ top: CGFloat, _ horizontal: CGFloat, _ bottom: CGFloat) -> Flex {
-        yoga.paddingTop = YGValue(top)
-        yoga.paddingHorizontal = YGValue(horizontal)
-        yoga.paddingBottom = YGValue(bottom)
+        pilates.paddingTop = PilatesValue(top)
+        pilates.paddingHorizontal = PilatesValue(horizontal)
+        pilates.paddingBottom = PilatesValue(bottom)
         return self
     }
 
     @discardableResult
     public func padding(_ top: FPercent, _ horizontal: FPercent, _ bottom: FPercent) -> Flex {
-        yoga.paddingTop = YGValue(value: Float(top.value), unit: .percent)
-        yoga.paddingHorizontal = YGValue(value: Float(horizontal.value), unit: .percent)
-        yoga.paddingBottom = YGValue(value: Float(bottom.value), unit: .percent)
+        pilates.paddingTop = PilatesValue(value: Float(top.value), unit: .percent)
+        pilates.paddingHorizontal = PilatesValue(value: Float(horizontal.value), unit: .percent)
+        pilates.paddingBottom = PilatesValue(value: Float(bottom.value), unit: .percent)
         return self
     }
     
@@ -1196,19 +1196,19 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> Flex {
-        yoga.paddingTop = YGValue(top)
-        yoga.paddingLeft = YGValue(left)
-        yoga.paddingBottom = YGValue(bottom)
-        yoga.paddingRight = YGValue(right)
+        pilates.paddingTop = PilatesValue(top)
+        pilates.paddingLeft = PilatesValue(left)
+        pilates.paddingBottom = PilatesValue(bottom)
+        pilates.paddingRight = PilatesValue(right)
         return self
     }
 
     @discardableResult
     public func padding(_ top: FPercent, _ left: FPercent, _ bottom: FPercent, _ right: FPercent) -> Flex {
-        yoga.paddingTop = YGValue(value: Float(top.value), unit: .percent)
-        yoga.paddingLeft = YGValue(value: Float(left.value), unit: .percent)
-        yoga.paddingBottom = YGValue(value: Float(bottom.value), unit: .percent)
-        yoga.paddingRight = YGValue(value: Float(right.value), unit: .percent)
+        pilates.paddingTop = PilatesValue(value: Float(top.value), unit: .percent)
+        pilates.paddingLeft = PilatesValue(value: Float(left.value), unit: .percent)
+        pilates.paddingBottom = PilatesValue(value: Float(bottom.value), unit: .percent)
+        pilates.paddingRight = PilatesValue(value: Float(right.value), unit: .percent)
         return self
     }
     
@@ -1277,7 +1277,7 @@ public final class Flex {
      */
     @discardableResult
     public func display(_ value: Display) -> Flex {
-        yoga.display = value.yogaValue
+        pilates.display = value.pilatesValue
         return self
     }
     

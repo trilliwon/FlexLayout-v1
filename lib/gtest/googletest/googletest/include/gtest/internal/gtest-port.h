@@ -120,7 +120,7 @@
 // NOT define them.
 //
 //   GTEST_OS_AIX      - IBM AIX
-//   GTEST_OS_CYGWIN   - Cygwin
+//   GTEST_OS_CPilatesWIN   - Cygwin
 //   GTEST_OS_FREEBSD  - FreeBSD
 //   GTEST_OS_HPUX     - HP-UX
 //   GTEST_OS_LINUX    - Linux
@@ -525,7 +525,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 // Solaris' libc++ doesn't support it either.  Android has
 // no support for it at least as recent as Froyo (2.2).
 # define GTEST_HAS_STD_WSTRING \
-    (!(GTEST_OS_LINUX_ANDROID || GTEST_OS_CYGWIN || GTEST_OS_SOLARIS))
+    (!(GTEST_OS_LINUX_ANDROID || GTEST_OS_CPilatesWIN || GTEST_OS_SOLARIS))
 
 #endif  // GTEST_HAS_STD_WSTRING
 
@@ -796,7 +796,7 @@ using ::std::tuple_size;
 // Google Test does not support death tests for VC 7.1 and earlier as
 // abort() in a VC 7.1 application compiled as GUI in debug config
 // pops up a dialog window that cannot be suppressed programmatically.
-#if (GTEST_OS_LINUX || GTEST_OS_CYGWIN || GTEST_OS_SOLARIS || \
+#if (GTEST_OS_LINUX || GTEST_OS_CPilatesWIN || GTEST_OS_SOLARIS || \
      (GTEST_OS_MAC && !GTEST_OS_IOS) || \
      (GTEST_OS_WINDOWS_DESKTOP && _MSC_VER >= 1400) || \
      GTEST_OS_WINDOWS_MINGW || GTEST_OS_AIX || GTEST_OS_HPUX || \
@@ -829,7 +829,7 @@ using ::std::tuple_size;
 
 // Determines whether the system compiler uses UTF-16 for encoding wide strings.
 #define GTEST_WIDE_STRING_USES_UTF16_ \
-    (GTEST_OS_WINDOWS || GTEST_OS_CYGWIN || GTEST_OS_SYMBIAN || GTEST_OS_AIX)
+    (GTEST_OS_WINDOWS || GTEST_OS_CPilatesWIN || GTEST_OS_SYMBIAN || GTEST_OS_AIX)
 
 // Determines whether test results can be streamed to a socket.
 #if GTEST_OS_LINUX

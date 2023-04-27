@@ -18,12 +18,12 @@ enum PageType: Int {
     case tableview
     case collectionView
     case exampleColumn
-    case yogaExampleA
-    case yogaExampleB
-    case yogaExampleC
-    case yogaExampleD
-    case yogaExampleE
-    case yogaExampleF
+    case pilatesExampleA
+    case pilatesExampleB
+    case pilatesExampleC
+    case pilatesExampleD
+    case pilatesExampleE
+    case pilatesExampleF
     // case flex
     
     case count
@@ -35,12 +35,12 @@ enum PageType: Int {
         case .tableview:      return "UITableView with variable cell's height"
         case .collectionView: return "UICollectionView with variable cell's height"
         case .exampleColumn:  return "Example 1 - Column"
-        case .yogaExampleA:   return "Yoga C Example"
-        case .yogaExampleB:   return "Yoga Obj-C Example"
-        case .yogaExampleC:   return "Yoga Java Example"
-        case .yogaExampleD:   return "Yoga C# Example"
-        case .yogaExampleE:   return "Yoga Android Example"
-        case .yogaExampleF:   return "Yoga Baseline Example"
+        case .pilatesExampleA:   return "Pilates C Example"
+        case .pilatesExampleB:   return "Pilates Obj-C Example"
+        case .pilatesExampleC:   return "Pilates Java Example"
+        case .pilatesExampleD:   return "Pilates C# Example"
+        case .pilatesExampleE:   return "Pilates Android Example"
+        case .pilatesExampleF:   return "Pilates Baseline Example"
         // case .flex:           return "Flexbox"
         case .count:          return ""
         }
@@ -53,12 +53,12 @@ enum PageType: Int {
         case .tableview:      return TableViewExampleViewController(pageType: self)
         case .collectionView: return CollectionViewExampleViewController(pageType: self)
         case .exampleColumn:  return Example1ViewController(pageType: self)
-        case .yogaExampleA:   return YogaExampleAViewController(pageType: self)
-        case .yogaExampleB:   return YogaExampleBViewController(pageType: self)
-        case .yogaExampleC:   return YogaExampleCViewController(pageType: self)
-        case .yogaExampleD:   return YogaExampleDViewController(pageType: self)
-        case .yogaExampleE:   return YogaExampleEViewController(pageType: self)
-        case .yogaExampleF:   return YogaExampleFViewController(pageType: self)
+        case .pilatesExampleA:   return PilatesExampleAViewController(pageType: self)
+        case .pilatesExampleB:   return PilatesExampleBViewController(pageType: self)
+        case .pilatesExampleC:   return PilatesExampleCViewController(pageType: self)
+        case .pilatesExampleD:   return PilatesExampleDViewController(pageType: self)
+        case .pilatesExampleE:   return PilatesExampleEViewController(pageType: self)
+        case .pilatesExampleF:   return PilatesExampleFViewController(pageType: self)
         // case .flex:           return FlexboxViewController(pageType: self)
         case .count:          return UIViewController()
         }

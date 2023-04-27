@@ -54,7 +54,7 @@ except:
 GTEST_OUTPUT_VAR_NAME = 'GTEST_OUTPUT'
 
 IS_WINDOWS = os.name == 'nt'
-IS_CYGWIN = os.name == 'posix' and 'CYGWIN' in os.uname()[0]
+IS_CPilatesWIN = os.name == 'posix' and 'CPilatesWIN' in os.uname()[0]
 
 # The environment variable for specifying the path to the premature-exit file.
 PREMATURE_EXIT_FILE_ENV_VAR = 'TEST_PREMATURE_EXIT_FILE'
@@ -170,7 +170,7 @@ def GetTestExecutablePath(executable_name, build_dir=None):
 
   path = os.path.abspath(os.path.join(build_dir or GetBuildDir(),
                                       executable_name))
-  if (IS_WINDOWS or IS_CYGWIN) and not path.endswith('.exe'):
+  if (IS_WINDOWS or IS_CPilatesWIN) and not path.endswith('.exe'):
     path += '.exe'
 
   if not os.path.exists(path):

@@ -36,8 +36,8 @@
 #define GTEST_INCLUDE_GTEST_INTERNAL_GTEST_PORT_ARCH_H_
 
 // Determines the platform on which Google Test is compiled.
-#ifdef __CYGWIN__
-# define GTEST_OS_CYGWIN 1
+#ifdef __CPilatesWIN__
+# define GTEST_OS_CPilatesWIN 1
 #elif defined __SYMBIAN32__
 # define GTEST_OS_SYMBIAN 1
 #elif defined _WIN32
@@ -88,6 +88,6 @@
 # define GTEST_OS_OPENBSD 1
 #elif defined __QNX__
 # define GTEST_OS_QNX 1
-#endif  // __CYGWIN__
+#endif  // __CPilatesWIN__
 
 #endif  // GTEST_INCLUDE_GTEST_INTERNAL_GTEST_PORT_ARCH_H_

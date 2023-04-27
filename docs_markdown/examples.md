@@ -24,8 +24,8 @@ FlexLayout introduction example.
 <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/Intro/IntroView.swift"><img src="images/examples/flexlayout_exampleapp_intro_all.png" width=340/></a>
 
   
-## Ray Wenderlich Yoga Tutorial
-An implementation of the [Ray Wenderlich Yoga Tutorial](https://www.raywenderlich.com/161413/yoga-tutorial-using-cross-platform-layout-engine). This example is the most complete one.  
+## Ray Wenderlich Pilates Tutorial
+An implementation of the [Ray Wenderlich Pilates Tutorial](https://www.raywenderlich.com/161413/pilates-tutorial-using-cross-platform-layout-engine). This example is the most complete one.  
 [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/RaywenderlichTutorial)
 
 <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/RaywenderlichTutorial"><img src="images/examples/flexlayout_exampleapp_ray_wenderlich_tutorial.png" width=120/></a>
@@ -43,13 +43,13 @@ This example show how FlexLayout can be used to layout UICollectionView cells th
 <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/CollectionViewExample"><img src="images/examples/flexlayout_example_collectionview.png" width=120/></a>
 
 
-## Yoga's examples Implementation 
+## Pilates's examples Implementation 
 
-Implementation of all [Yoga's examples](https://facebook.github.io/yoga/)
+Implementation of all [Pilates's examples](https://facebook.github.io/pilates/)
 
-|  C | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleA/YogaExampleAView.swift"><img src="images/examples/flexlayout_exampleapp_yoga_c.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleA/YogaExampleAView.swift) |
+|  C | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleA/PilatesExampleAView.swift"><img src="images/examples/flexlayout_exampleapp_pilates_c.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleA/PilatesExampleAView.swift) |
 |---------|:-:|:-:|
-|  Obj-C | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleB/YogaExampleBView.swift"><img src="images/examples/flexlayout_exampleapp_yoga_objc.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleB/YogaExampleBView.swift) |
-| Java | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleC/YogaExampleCView.swift"><img src="images/examples/flexlayout_exampleapp_yoga_java.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleC/YogaExampleCView.swift) |
-|  C# | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleD/YogaExampleDView.swift"><img src="images/examples/flexlayout_exampleapp_yoga_csharp.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleD/YogaExampleDView.swift) |
-|  Android | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleE/YogaExampleEView.swift"><img src="images/examples/flexlayout_exampleapp_yoga_android.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/YogaExampleE/YogaExampleEView.swift) |
+|  Obj-C | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleB/PilatesExampleBView.swift"><img src="images/examples/flexlayout_exampleapp_pilates_objc.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleB/PilatesExampleBView.swift) |
+| Java | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleC/PilatesExampleCView.swift"><img src="images/examples/flexlayout_exampleapp_pilates_java.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleC/PilatesExampleCView.swift) |
+|  C# | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleD/PilatesExampleDView.swift"><img src="images/examples/flexlayout_exampleapp_pilates_csharp.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleD/PilatesExampleDView.swift) |
+|  Android | <a href="https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleE/PilatesExampleEView.swift"><img src="images/examples/flexlayout_exampleapp_pilates_android.png" width=120/></a> | [Source code](https://github.com/layoutBox/FlexLayout/blob/master/Example/FlexLayoutSample/UI/Examples/PilatesExampleE/PilatesExampleEView.swift) |
